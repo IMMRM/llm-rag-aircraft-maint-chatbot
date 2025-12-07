@@ -1,0 +1,7 @@
+pip
+python-dotenv
+ruff
+langchain-huggingface
+sentence-transformers
+chromadb
+-e .

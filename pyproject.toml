@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "src"
+name = "aviation_rag"
 version = "0.0.1"
 description = "An intelligent LLM-based advisory system designed for aviation maintenance operations. This project uses Retrieval-Augmented Generation (RAG) to enable precise and context-aware responses from the Standard Aviation Operational Manual, allowing technicians to access maintenance procedures, safety protocols, and regulatory guidelines efficiently."
 authors = [
@@ -20,8 +20,13 @@ dependencies = [
     "ipykernel>=7.1.0",
     "langchain>=1.0.3",
     "langchain-community>=0.4.1",
+    "langchain-huggingface>=1.0.1",
+    "pip>=25.3",
     "pymupdf>=1.26.5",
     "pypdf>=6.1.3",
+    "python-dotenv>=1.2.1",
+    "ruff>=0.14.5",
+    "sentence-transformers>=5.1.2",
 ]
 
 
@@ -36,4 +41,22 @@ extend-select = ["I"]  # Add import sorting
 [tool.ruff.lint.isort]
 known-first-party = ["src"]
 force-sort-within-sections = true
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
+
+[tool.uv.sources]
+src = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "langchain-huggingface>=1.0.1",
+    "pip>=25.3",
+    "python-dotenv>=1.2.1",
+    "ruff>=0.14.5",
+    "sentence-transformers>=5.1.2",
+    "src",
+]
 
