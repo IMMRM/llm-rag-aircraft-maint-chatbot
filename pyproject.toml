@@ -39,24 +39,28 @@ include = ["pyproject.toml", "src/**/*.py"]
 extend-select = ["I"]  # Add import sorting
 
 [tool.ruff.lint.isort]
-known-first-party = ["src"]
+known-first-party = ["aviation_rag"]
 force-sort-within-sections = true
 
 [tool.uv.workspace]
 members = [
-    ".",
+    "."
 ]
 
 [tool.uv.sources]
-src = { workspace = true }
+aviation-rag = { workspace = true }
+# src = { workspace = true }
+# aviation-rag = {workspace = true }
 
 [dependency-groups]
 dev = [
+    "aviation-rag",
+    "chromadb",
     "langchain-huggingface>=1.0.1",
+    "langchain-openai",
     "pip>=25.3",
     "python-dotenv>=1.2.1",
     "ruff>=0.14.5",
-    "sentence-transformers>=5.1.2",
-    "src",
+    "sentence-transformers>=5.1.2"
 ]
 

@@ -4,4 +4,5 @@ ruff
 langchain-huggingface
 sentence-transformers
 chromadb
+langchain-openai
 -e .
